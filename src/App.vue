@@ -1,4 +1,4 @@
-<script setup>
+﻿<script setup>
 import { ref } from 'vue'
 import BunArt from './components/BunArt.vue'
 const mobileOpen = ref(false)
@@ -53,8 +53,8 @@ const foods = [
       </div>
       <a href="#menu" class="scroll-cue">往下探索 <span>↓</span></a>
     </section>
-    <div class="ticker" aria-hidden="true"><span>一口蔬香</span> ✳ <span>A LITTLE BITE OF LUCK</span> ✳ <span>好食・好心情</span>
-      ✳ <span>幸運蔬齋</span> ✳ <span>A LITTLE BITE OF LUCK</span> ✳</div>
+    <div class="ticker" aria-hidden="true"><span>一口蔬香</span> ✳ <span>A little bit of luck</span> ✳ <span>好食・好心情</span>
+      ✳ <span>幸運蔬齋</span> ✳ <span>A little bit of luck</span> ✳</div>
     <section id="menu" class="section menu-section">
       <div class="section-heading">
         <div>
@@ -71,7 +71,7 @@ const foods = [
         <article v-for="food in foods.filter(item => selected === '全部餐點' || item.category === selected)"
           :key="food.name" class="food-card">
           <div class="food-image" :class="{ noodle: food.bowl }"><span class="food-tag">{{ food.tag }}</span>
-            <BunArt :bowl="food.bowl" /><span class="image-label">餐點插畫示意</span>
+            <BunArt :bowl="food.bowl" />
           </div>
           <div class="food-info">
             <div class="food-title">
