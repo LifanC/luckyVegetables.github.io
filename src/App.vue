@@ -7,29 +7,25 @@ const maps = 'https://www.google.com/maps?cid=14446014089504535533'
 const foods = [
   {
     name: '素食水煎包',
-    en: 'PAN-FRIED VEGETARIAN BUNS',
     category: '水煎包',
     text: '一口金黃，一口滿足。把喜歡的蔬食滋味，包進日常的小確幸。',
     tag: '招牌好滋味', type: 'bun'
   },
   {
     name: '素食麵線',
-    en: 'VEGETARIAN VERMICELLI',
     category: '麵線',
     text: '細細麵線，暖暖一碗。留一點時間，享受簡單而舒服的一餐。',
     tag: '暖心的選擇', type: 'noodle'
   },
   {
     name: '素食南部粽',
-    en: 'SOUTHERN TAIWANESE RICE DUMPLING',
     category: '南部粽',
     text: '粽葉飄香，包起熟悉的台灣味。來一顆南部粽，享受日常的小滿足。',
     tag: '熟悉的台灣味', type: 'zongzi'
   },
   {
     name: '豆漿',
-    en: 'SOY MILK',
-    category: '豆漿',
+    category: '飲品',
     text: '一口豆香，簡單又滿足。搭配喜歡的餐點，享受日常的小美好。',
     tag: '豆香好滋味', type: 'soyMilk'
   }
@@ -41,7 +37,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
   <header class="header">
     <a class="brand" href="#home" aria-label="幸運蔬齋首頁">
       <img class="brand-logo" src="../img/logo.svg" alt="" width="46" height="48" />
-      <span>幸運蔬齋<small>LUCKY VEGETABLES</small></span>
+      <span>幸運蔬齋<small>台灣小吃・素食好味</small></span>
     </a>
     <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen"
       aria-controls="navigation" aria-label="切換導覽選單">{{ mobileOpen ? '✕' : '☰' }}
@@ -78,10 +74,10 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
       </div>
       <div class="hero-visual">
         <div class="orbit"></div>
-        <span class="visual-top">SIMPLE FOOD. LITTLE JOYS.</span>
+        <span class="visual-top">熱騰騰的台灣味，實實在在的好滋味。</span>
         <div class="round-stamp">蔬食日常
           <span>好運上桌</span>
-          <small>MADE WITH LOVE</small>
+          <small>用心做好味</small>
         </div>
         <BunArt />
         <span class="handwritten">幸福，就是這一口。</span>
@@ -96,15 +92,13 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
     </section>
     <div class="ticker" aria-hidden="true">
       <span>一口蔬香</span> ✳ 
-      <span>A little bit of luck</span> ✳ 
       <span>好食・好心情</span> ✳ 
       <span>幸運蔬齋</span> ✳ 
-      <span>A little bit of luck</span> ✳
     </div>
     <section id="menu" class="section menu-section">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">OUR SIGNATURES / 招牌餐點</div>
+          <div class="eyebrow">招牌餐點</div>
           <h2>每一樣，都很滿足。</h2>
         </div>
         <p>熟悉的台灣味，多一份蔬食的美好。
@@ -123,7 +117,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
       <div class="food-grid">
         <article v-for="food in foods.filter(item => selected === '全部餐點' || item.category === selected)"
           :key="food.name" class="food-card">
-          <div class="food-image" :class="{ noodle: food.type === 'noodle' }">
+          <div class="food-image" :class="{ bun: food.type === 'bun' }">
             <span class="food-tag">{{ food.tag }}</span>
             <BunArt :type="food.type" loading="lazy" />
           </div>
@@ -132,7 +126,6 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
               <h3>{{ food.name }}</h3>
               <span>↗</span>
             </div>
-            <small>{{ food.en }}</small>
             <p>{{ food.text }}</p>
           </div>
         </article>
@@ -144,10 +137,10 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
         <span class="story-circle"><img src="../img/logo.svg" alt="" /></span>
         <span class="story-seal">一日一餐
           <br>一點幸運</span>
-        <span class="story-art-caption">GOOD FOOD, GOOD MOOD.</span>
+        <span class="story-art-caption">熟悉的台灣味，吃飽也吃好。</span>
       </div>
       <div class="story-copy">
-        <div class="eyebrow">OUR PHILOSOPHY / 關於蔬齋</div>
+        <div class="eyebrow">關於蔬齋</div>
         <h2>把平凡的一餐，
           <br>變成日常的小幸運。
         </h2>
@@ -163,9 +156,9 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
     </section>
     <section id="visit" class="section visit">
       <div>
-        <div class="eyebrow">COME SAY HELLO / 來店資訊</div>
+        <div class="eyebrow">來店資訊</div>
         <h2>下一站，幸運蔬齋。</h2>
-        <p>想吃點熱的，就往這裡走。
+        <p>想吃點簡單的，就往這裡走。
           <br>打開 Google 地圖，找到今天的小幸運。
         </p>
         <a :href="maps" class="button primary" target="_blank" rel="noopener noreferrer">開啟 Google 地圖 
@@ -191,7 +184,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
     <a class="brand" href="#home">
       <img class="brand-logo" src="../img/logo.svg" alt="" width="46" height="48" />
       <span>幸運蔬齋
-        <small>LUCKY VEGETABLES</small>
+        <small>台灣小吃・素食好味</small>
       </span>
     </a>
     <p>一口蔬香，一點幸運。</p>

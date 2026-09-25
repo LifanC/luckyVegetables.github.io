@@ -4,7 +4,14 @@ import noodleImage from '../../img/b.jpg'
 import zongziImage from '../../img/c.jpg'
 import soyMilkImage from '../../img/d.jpg'
 
-defineProps({ type: { type: String, default: 'bun' } })
+defineProps(
+  { 
+    type: { 
+      type: String, 
+      default: 'bun' 
+    } 
+  }
+)
 
 const images = {
   bun: { src: bunImage, alt: '金黃素食水煎包' },
