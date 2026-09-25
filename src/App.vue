@@ -52,7 +52,6 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
       <a href="#visit" @click="mobileOpen = false">來店資訊</a>
       <a :href="maps" target="_blank" rel="noopener noreferrer" class="nav-cta">來找幸運 <span>↗</span></a>
     </nav>
-    <img class="header-storefront" src="../img/head.jpg" alt="幸運蔬齋店面，販售素食水煎包與麵線" width="408" height="543" />
   </header>
   <main>
     <section id="home" class="hero">
