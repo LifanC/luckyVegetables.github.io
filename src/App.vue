@@ -22,9 +22,16 @@ const foods = [
   {
     name: '素食南部粽',
     en: 'SOUTHERN TAIWANESE RICE DUMPLING',
-    category: '素食南部粽',
+    category: '南部粽',
     text: '粽葉飄香，包起熟悉的台灣味。來一顆南部粽，享受日常的小滿足。',
     tag: '熟悉的台灣味', type: 'zongzi'
+  },
+  {
+    name: '豆漿',
+    en: 'SOY MILK',
+    category: '豆漿',
+    text: '一口豆香，簡單又滿足。搭配喜歡的餐點，享受日常的小美好。',
+    tag: '豆香好滋味', type: 'soyMilk'
   }
 ]
 const categories = ['全部餐點', ...new Set(foods.map(food => food.category))]
@@ -33,7 +40,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
 <template>
   <header class="header">
     <a class="brand" href="#home" aria-label="幸運蔬齋首頁">
-      <img class="brand-logo" src="../img/d.svg" alt="" width="46" height="48" />
+      <img class="brand-logo" src="../img/logo.svg" alt="" width="46" height="48" />
       <span>幸運蔬齋<small>LUCKY VEGETABLES</small></span>
     </a>
     <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen"
@@ -45,6 +52,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
       <a href="#visit" @click="mobileOpen = false">來店資訊</a>
       <a :href="maps" target="_blank" rel="noopener noreferrer" class="nav-cta">來找幸運 <span>↗</span></a>
     </nav>
+    <img class="header-storefront" src="../img/head.jpg" alt="幸運蔬齋店面，販售素食水煎包與麵線" width="408" height="543" />
   </header>
   <main>
     <section id="home" class="hero">
@@ -134,7 +142,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
     </section>
     <section id="story" class="story">
       <div class="story-art">
-        <span class="story-circle"><img src="../img/d.svg" alt="" /></span>
+        <span class="story-circle"><img src="../img/logo.svg" alt="" /></span>
         <span class="story-seal">一日一餐
           <br>一點幸運</span>
         <span class="story-art-caption">GOOD FOOD, GOOD MOOD.</span>
@@ -182,7 +190,7 @@ const categories = ['全部餐點', ...new Set(foods.map(food => food.category))
   </main>
   <footer>
     <a class="brand" href="#home">
-      <img class="brand-logo" src="../img/d.svg" alt="" width="46" height="48" />
+      <img class="brand-logo" src="../img/logo.svg" alt="" width="46" height="48" />
       <span>幸運蔬齋
         <small>LUCKY VEGETABLES</small>
       </span>

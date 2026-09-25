@@ -51,12 +51,24 @@ footer {
 }
 
 .header {
-    height: 108px;
+    min-height: 108px;
+    padding-block: 28px;
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 28px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #284b3918;
     background: #faf8f0
+}
+
+.header-storefront {
+    display: block;
+    width: 100%;
+    height: clamp(240px, 32vw, 400px);
+    object-fit: cover;
+    object-position: center 72%;
+    border-radius: 5px;
 }
 
 .brand {
@@ -848,7 +860,9 @@ footer>small {
     }
 
     .header {
-        height: 85px
+        min-height: 85px;
+        padding-block: 18px;
+        row-gap: 18px
     }
 
     .brand {
